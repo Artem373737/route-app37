@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Route App</title>
+</head>
+<body>
+
+<h2>Завантаж Excel</h2>
+
+<form method="post" enctype="multipart/form-data">
+  <input type="file" name="file" required>
+  <button type="submit">Побудувати</button>
+</form>
+
+{% for r in routes %}
+  <p><a href="{{r}}" target="_blank">Маршрут {{loop.index}}</a></p>
+{% endfor %}
+
+{% if errors %}
+<h3>Проблемні адреси:</h3>
+{% for e in errors %}
+<p style="color:red">{{e}}</p>
+{% endfor %}
+{% endif %}
+
+</body>
+</html>
